@@ -1,2 +1,3 @@
 target
 SoapRestServices-1.0.jar
+sources/soapClient/src/main/java/es/uned/scc/grados/appdist/trabajos/ws/client/jaxws/generated

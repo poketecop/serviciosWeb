@@ -1,4 +1,4 @@
-package es.uned.scc.grados.appdist.trabajos.ws.soap;
+package es.uned.scc.grados.appdist.trabajos.ws.client.jaxws;
 
 import javax.xml.namespace.QName;
 
