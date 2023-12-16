@@ -24,7 +24,8 @@ public class WSServer {
         WSServer server = new WSServer();
         System.out.println("Server ready...");
 
-        Thread.sleep(5 * 60 * 1000);
+        // Thread.sleep 2 horas en formato entendible
+        Thread.sleep(2 * 60 * 60 * 1000);
         System.out.println("Server exiting");
         server.getEndpoint().stop();
         System.exit(0);
