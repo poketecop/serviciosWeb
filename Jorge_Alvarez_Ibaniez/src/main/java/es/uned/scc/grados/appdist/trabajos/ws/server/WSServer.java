@@ -6,20 +6,29 @@ import jakarta.xml.ws.Endpoint;
 
 public class WSServer {
 	
-	protected WSServer() throws Exception {
+    private Endpoint endpoint;
+
+	public Endpoint getEndpoint() {
+        return endpoint;
+    }
+
+    protected WSServer() throws Exception {
         System.out.println("Starting Server");
         SignalGeneratorWSImpl implementor = new SignalGeneratorWSImpl();
         SignalGeneratorWS service = (SignalGeneratorWS) implementor;
-        String address = "http://localhost:9000/SignalGeneratorWS";
-        Endpoint.publish(address, service);
+        String address = "http://localhost:9000/SignalGenerator";
+        endpoint = Endpoint.publish(address, service);
     }
 
     public static void main(String args[]) throws Exception {
-        new WSServer();
+        WSServer server = new WSServer();
         System.out.println("Server ready...");
 
         Thread.sleep(5 * 60 * 1000);
         System.out.println("Server exiting");
+        server.getEndpoint().stop();
         System.exit(0);
     }
+
+    
 }
