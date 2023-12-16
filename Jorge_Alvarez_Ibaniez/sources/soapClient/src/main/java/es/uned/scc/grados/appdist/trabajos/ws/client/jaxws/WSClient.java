@@ -10,7 +10,7 @@ public class WSClient {
         SignalGeneratorWS service = new SignalGeneratorWSImplService().getSignalGeneratorWSImplPort();
 
         PlottingFrame gui = new PlottingFrame(service);
-        gui.start();
+        gui.show();
     }
 	
 }

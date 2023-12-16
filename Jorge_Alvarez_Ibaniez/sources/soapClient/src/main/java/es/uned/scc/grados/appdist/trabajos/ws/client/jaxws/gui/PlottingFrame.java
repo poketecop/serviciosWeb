@@ -16,17 +16,18 @@ public class PlottingFrame implements ClientPlot {
         this.gui = new ClientGUI(this);
     }
 
+    public void show() {
+        this.gui.getFrame().setVisible(true);
+    }
+
     @Override
     public boolean start() {
-        this.gui.getFrame().setVisible(true);
-
-        return true;
+        return this.client.start().isOk();
     }
+
     @Override
     public boolean stop() {
-        this.gui.getFrame().setVisible(false);
-
-        return true;
+        return this.client.stop().isOk();
     }
     
     @Override
