@@ -1,0 +1,4 @@
+Documento en formato texto (puede ser word, txt  o pdf) con la arquitectura desarrollada y comentarios sobre los problemas encontrados durante el desarrollo y prueba de los servicios SOAP y REST (servidores y clientes). Además se deben incluir los pantallazos/comentarios pedidos en la parte de pruebas. 
+
+Sobre la carpeta lib
+mvn install:install-file -Dfile=SignalGenerator-1.0.jar -DgroupId=es.uned.scc.grados.appdist.trabajos.ws -DartifactId=SignalGenerator -Dversion=1.0 -DgeneratePom=true -Dpackaging=jar
