@@ -63,7 +63,6 @@ public class RESTSignalGeneratorWSImpl implements RESTSignalGenerator {
 
     @Path("setParams")
     @POST
-    @Produces({"text/xml"})
     @Override
     public void setSignalParameters(SignalParameters signal_parameters) {
         SignalGenerator sg = signalGeneratorThread.getSignalgenerator();

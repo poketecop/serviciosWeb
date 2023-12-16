@@ -5,7 +5,7 @@ import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 
 import es.uned.scc.grados.appdist.trabajos.ws.RESTSignalGeneratorWSImpl;
 
-public class RESTWSServer_Daemon {
+public class RESTWSServer {
 
     public static void main(String args[]) throws Exception {
         // Create the JAX-RS Server with CXF
