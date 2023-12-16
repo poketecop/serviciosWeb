@@ -1,8 +1,9 @@
 package es.uned.scc.grados.appdist.trabajos.ws.soap;
 
 import javax.xml.namespace.QName;
-import javax.xml.ws.Service;
-import javax.xml.ws.soap.SOAPBinding;
+
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.soap.SOAPBinding;
 
 public class WSClient {
 
