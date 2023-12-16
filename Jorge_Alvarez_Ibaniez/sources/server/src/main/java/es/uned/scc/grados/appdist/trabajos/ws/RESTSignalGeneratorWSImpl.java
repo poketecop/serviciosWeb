@@ -13,18 +13,14 @@ import jakarta.ws.rs.Produces;
 @Path("SignalGenerator")
 public class RESTSignalGeneratorWSImpl implements RESTSignalGenerator {
 
-    private SignalGeneratorThread signalGeneratorThread;
-
-    public RESTSignalGeneratorWSImpl() {
-        this.signalGeneratorThread = new SignalGeneratorThread(0.01); // sampleTime is 0.01 seconds
-    }
+    private static SignalGeneratorThread signalGeneratorThread = new SignalGeneratorThread(0.01);
 
     @Path("start")
     @GET
     @Produces({"text/xml"})
     @Override
     public OperationInfo start() {
-        return this.signalGeneratorThread.start();
+        return signalGeneratorThread.start();
     }
 
     @Path("stop")
@@ -32,7 +28,7 @@ public class RESTSignalGeneratorWSImpl implements RESTSignalGenerator {
     @Produces({"text/xml"})
     @Override
     public OperationInfo stop() {
-        return this.signalGeneratorThread.stop();
+        return signalGeneratorThread.stop();
     }
 
     @Path("isrunning")
@@ -40,7 +36,7 @@ public class RESTSignalGeneratorWSImpl implements RESTSignalGenerator {
     @Produces({"text/xml"})
     @Override
     public OperationInfo isRunning() {
-        return this.signalGeneratorThread.isThreadRunning();
+        return signalGeneratorThread.isThreadRunning();
     }
 
     @Path("get")
@@ -48,8 +44,8 @@ public class RESTSignalGeneratorWSImpl implements RESTSignalGenerator {
     @Produces({"text/xml"})
     @Override
     public SignalData getSignalValue() {
-        return new SignalData(this.signalGeneratorThread.getSignalgenerator().getTime(), 
-								this.signalGeneratorThread.getSignalgenerator().getOutput());
+        return new SignalData(signalGeneratorThread.getSignalgenerator().getTime(), 
+								signalGeneratorThread.getSignalgenerator().getOutput());
     }
 
     @Path("getParams")
@@ -58,7 +54,7 @@ public class RESTSignalGeneratorWSImpl implements RESTSignalGenerator {
     @Override
     public SignalParameters getSignalParameters() {
         SignalParameters params = new SignalParameters();
-        SignalGenerator sg = this.signalGeneratorThread.getSignalgenerator();
+        SignalGenerator sg = signalGeneratorThread.getSignalgenerator();
         params.setAmplitude(sg.getAmplitude());
         params.setFrequency(sg.getFrequency());
         params.setType(sg.getType());
@@ -70,7 +66,7 @@ public class RESTSignalGeneratorWSImpl implements RESTSignalGenerator {
     @Produces({"text/xml"})
     @Override
     public void setSignalParameters(SignalParameters signal_parameters) {
-        SignalGenerator sg = this.signalGeneratorThread.getSignalgenerator();
+        SignalGenerator sg = signalGeneratorThread.getSignalgenerator();
         sg.setAmplitude(signal_parameters.getAmplitude());
         sg.setFrequency(signal_parameters.getFrequency());
         sg.setSignalType(signal_parameters.getType());
