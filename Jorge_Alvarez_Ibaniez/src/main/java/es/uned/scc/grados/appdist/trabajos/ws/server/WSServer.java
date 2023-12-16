@@ -1,14 +1,17 @@
 package es.uned.scc.grados.appdist.trabajos.ws.server;
 
+import es.uned.scc.grados.appdist.trabajos.ws.SignalGeneratorWS;
+import es.uned.scc.grados.appdist.trabajos.ws.SignalGeneratorWSImpl;
 import jakarta.xml.ws.Endpoint;
 
 public class WSServer {
 	
 	protected WSServer() throws Exception {
         System.out.println("Starting Server");
-        Object implementor = new es.uned.scc.grados.appdist.trabajos.ws.SignalGeneratorWSImpl();
-        String address = "http://localhost:9090/SignalGeneratorWSImplPort";
-        Endpoint.publish(address, implementor);
+        SignalGeneratorWSImpl implementor = new SignalGeneratorWSImpl();
+        SignalGeneratorWS service = (SignalGeneratorWS) implementor;
+        String address = "http://localhost:9000/SignalGeneratorWS";
+        Endpoint.publish(address, service);
     }
 
     public static void main(String args[]) throws Exception {

@@ -1,11 +1,10 @@
 package es.uned.scc.grados.appdist.trabajos.ws;
 
-import javax.jws.WebParam;
-import javax.jws.WebService;
-
 import es.uned.scc.grados.appdist.trabajos.signal.model.data.OperationInfo;
 import es.uned.scc.grados.appdist.trabajos.signal.model.data.SignalData;
 import es.uned.scc.grados.appdist.trabajos.signal.model.data.SignalParameters;
+import jakarta.jws.WebParam;
+import jakarta.jws.WebService;
 
 @WebService(serviceName = "SignalGeneratorWS", targetNamespace = "http://ws.sample.org/")
 public interface SignalGeneratorWS {

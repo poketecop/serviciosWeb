@@ -1,14 +1,15 @@
 package es.uned.scc.grados.appdist.trabajos.ws;
 
-import javax.jws.WebService;
 
 import es.uned.scc.grados.appdist.trabajos.signal.model.SignalGenerator;
 import es.uned.scc.grados.appdist.trabajos.signal.model.SignalGeneratorThread;
 import es.uned.scc.grados.appdist.trabajos.signal.model.data.OperationInfo;
 import es.uned.scc.grados.appdist.trabajos.signal.model.data.SignalData;
 import es.uned.scc.grados.appdist.trabajos.signal.model.data.SignalParameters;
+import jakarta.jws.WebService;
 
-@WebService(endpointInterface = "es.uned.scc.grados.appdist.trabajos.ws.SignalGeneratorWS", serviceName = "SignalGenerator")
+// Los atributos que pone el enunciado no están permitidos y no parecen hacer falta.
+@WebService
 public class SignalGeneratorWSImpl implements SignalGeneratorWS {
     private SignalGeneratorThread signalGeneratorThread;
 
